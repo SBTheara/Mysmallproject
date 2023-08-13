@@ -28,7 +28,6 @@ public class ProductController{
         pro = productsRepository.findById(id).get();
         pro.setName(products.getName());
         pro.setDescription(products.getDescription());
-        pro.setImage(products.getImage());
         pro.setCategory_id(products.getCategory_id());
         pro.setQuantity(products.getQuantity());
         pro.setBrand(products.getBrand());

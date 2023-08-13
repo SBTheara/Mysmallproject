@@ -11,10 +11,10 @@ import lombok.*;
 public class Products {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "product_id")
     private int product_id;
     private String name;
     private String description;
-    private String image;
     private int category_id;
     private int quantity;
     private String brand;
@@ -23,13 +23,12 @@ public class Products {
     private double price;
     private int feature;
     private int Create_at;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "img_id")
+    @OneToOne(mappedBy = "products")
     private FileImageDB fileImageDB;
-    public Products(String name, String description, String image, int category_id, int quantity, String brand, String model, String configuration, double price, int feature, int create_at) {
+
+    public Products(String name, String description, int category_id, int quantity, String brand, String model, String configuration, double price, int feature, int create_at) {
         this.name = name;
         this.description = description;
-        this.image = image;
         this.category_id = category_id;
         this.quantity = quantity;
         this.brand = brand;

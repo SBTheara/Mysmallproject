@@ -25,7 +25,8 @@ public class FileImageDB {
     @Column(length = 300000)
     private byte[] data;
 
-    @OneToOne(mappedBy = "fileImageDB")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "product_id")
     private Products products;
 
     public FileImageDB(String name, String type, byte[] data) {

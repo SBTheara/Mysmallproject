@@ -28,7 +28,7 @@ public class PosApplication implements CommandLineRunner {
         Users user = new Users("Hello","world","helloworld@gmail.com","1234","Kandal","012 334 556","Simple",1);
         this.usersRepository.save(user);
         Products pro = new Products(
-                "coca cola","energydrink","cocacola.png",1,100,"coca cola","drink","container",2500.00,3,2
+                "coca cola","energydrink",1,100,"coca cola","drink","container",2500.00,3,2
         );
         productsRepository.save(pro);
     }

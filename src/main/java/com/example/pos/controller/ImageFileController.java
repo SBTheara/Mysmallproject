@@ -17,7 +17,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@CrossOrigin("http://localhost:8081/image")
+@CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping(value = "/images")
 public class ImageFileController {
     @Autowired
     private FileImgaDB_Service fileImgaDBService;

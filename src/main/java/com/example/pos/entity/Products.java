@@ -1,7 +1,11 @@
 package com.example.pos.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 @Table(name = "products")
@@ -15,7 +19,6 @@ public class Products {
     private int product_id;
     private String name;
     private String description;
-    private int category_id;
     private int quantity;
     private String brand;
     private String model;
@@ -23,13 +26,13 @@ public class Products {
     private double price;
     private int feature;
     private int Create_at;
+
     @OneToOne(mappedBy = "products")
     private FileImageDB fileImageDB;
 
-    public Products(String name, String description, int category_id, int quantity, String brand, String model, String configuration, double price, int feature, int create_at) {
+    public Products(String name, String description, int quantity, String brand, String model, String configuration, double price, int feature, int create_at) {
         this.name = name;
         this.description = description;
-        this.category_id = category_id;
         this.quantity = quantity;
         this.brand = brand;
         this.model = model;
@@ -38,4 +41,10 @@ public class Products {
         this.feature = feature;
         Create_at = create_at;
     }
+
+//    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+//    @JoinColumn(name = "category_id",referencedColumnName = "category_id",foreignKey = @ForeignKey(name = "category_id"))
+//    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+//    @JsonIgnore
+//    private Category category;
 }
